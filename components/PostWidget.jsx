@@ -27,7 +27,7 @@ const PostWidget = ({ categories, slug }) => {
               alt={post.title}
               height='60px'
               width='60px'
-              className='align-middle rounded-full'
+              className='align-middle rounded-full h-10 object-cover'
               src={post.featuredImage.url}
             />
           </div>
