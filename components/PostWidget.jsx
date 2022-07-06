@@ -11,7 +11,12 @@ const PostWidget = ({ categories, slug }) => {
     if (slug) {
       getSimilarPosts(categories, slug).then((res) => setRelatedPosts(res));
     } else {
-      getRecentPosts().then((res) => setRelatedPosts(res));
+      getRecentPosts().then((res) => {
+        const sorted = res.sort((firstPost, secondPost) => {
+          return new Date(secondPost.createdAt) - new Date(firstPost.createdAt);
+        });
+        setRelatedPosts(sorted);
+      });
     }
   }, [slug]);
 
